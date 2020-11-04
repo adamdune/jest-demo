@@ -1,5 +1,7 @@
 import Head from "next/head"
 import { useState } from "react"
+import AddNewTodo from "../components/AddNewTodo"
+import TodoItem from "../components/TodoItem"
 
 export default function Home() {
   const [todos, setTodos] = useState([
@@ -7,24 +9,19 @@ export default function Home() {
     { title: "something else", isDone: true },
   ])
 
-  const [newTodo, setNewTodo] = useState("")
-
-  const onChangeCheckbox = (e, i) => {
+  const onChangeCheckbox = (isDone, i) => {
     setTodos(
       todos.map((todo, j) => {
         if (i === j) {
-          return { ...todo, isDone: e.target.checked }
+          return { ...todo, isDone: !isDone }
         }
         return todo
       }),
     )
   }
 
-  const createTodo = () => {
-    if (newTodo) {
-      setTodos(todos.concat([{ title: newTodo, isDone: false }]))
-      setNewTodo("")
-    }
+  const createTodo = (title) => {
+    setTodos(todos.concat([{ title: title, isDone: false }]))
   }
 
   return (
@@ -34,29 +31,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="flex flex-col items-center p-6">
+        <h1 className="text-3xl font-bold text-blue-500">Todo App</h1>
+        <div className="h-6" />
+        <AddNewTodo createTodo={createTodo} />
+        <div className="h-6" />
         <div>
-          <h1>Todo App</h1>
-          <input
-            type="text"
-            value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}
-          />
-          <button onClick={createTodo}>Add New Todo</button>
-          <div>
-            {todos.map((todo, i) => (
-              <div key={i}>
-                <input
-                  type="checkbox"
-                  onChange={(e) => onChangeCheckbox(e, i)}
-                  checked={todo.isDone}
-                />
-                <p className={todo.isDone ? `line-through` : "bg-red-500"}>
-                  {todo.title}
-                </p>
-              </div>
-            ))}
-          </div>
+          {todos.map((todo, i) => (
+            <TodoItem
+              key={i}
+              todo={todo}
+              index={i}
+              onChangeCheckbox={onChangeCheckbox}
+            />
+          ))}
         </div>
       </main>
     </div>
