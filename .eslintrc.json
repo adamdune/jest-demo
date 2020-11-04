@@ -1,0 +1,34 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": true
+    }
+  },
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "globals": {
+    "React": "readonly"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "sharedData": "globals"
+  },
+  "rules": {
+    "semi": ["warn", "never"],
+    "no-unused-vars": "warn",
+    "spaced-comment": ["warn", "always"],
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-key": "warn",
+    "react/jsx-no-undef": ["error", { "allowGlobals": true }]
+  }
+}
