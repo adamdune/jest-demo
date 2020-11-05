@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"
 
 const TodoItem = ({ todo, index, onChangeCheckbox }) => (
-  <div className="flex items-center cursor-pointer">
+  <div className="flex items-center cursor-pointer" data-testid="TodoItem">
     <input
       type="checkbox"
+      role="checkbox"
       onChange={() => onChangeCheckbox(todo.isDone, index)}
       checked={todo.isDone}
       id={`checkbox/${index}`}

@@ -4,10 +4,7 @@ import AddNewTodo from "../components/AddNewTodo"
 import TodoItem from "../components/TodoItem"
 
 export default function Home() {
-  const [todos, setTodos] = useState([
-    { title: "do stuff and things", isDone: false },
-    { title: "something else", isDone: true },
-  ])
+  const [todos, setTodos] = useState([])
 
   const onChangeCheckbox = (isDone, i) => {
     setTodos(
