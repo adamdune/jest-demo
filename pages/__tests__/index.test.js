@@ -20,9 +20,14 @@ describe("Index Page", () => {
 
     const todoItems = screen.queryAllByTestId("TodoItem")
     expect(todoItems).toHaveLength(3)
-    expect(screen.getByText("This is a todo 1")).toBeVisible()
-    expect(screen.getByText("This is a todo 2")).toBeVisible()
-    expect(screen.getByText("This is a todo 3")).toBeVisible()
+    expect(todoItems.map((item) => item.textContent)).toEqual([
+      "This is a todo 1",
+      "This is a todo 2",
+      "This is a todo 3",
+    ])
+    // expect(screen.getByText("This is a todo 1")).toBeVisible()
+    // expect(screen.getByText("This is a todo 2")).toBeVisible()
+    // expect(screen.getByText("This is a todo 3")).toBeVisible()
   })
 
   it("when todo is clicked, line-through on the TodoItem is toggled", () => {

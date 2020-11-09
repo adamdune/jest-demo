@@ -1,7 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import AddNewTodo from "../AddNewTodo"
+import renderer from "react-test-renderer"
 
 describe("AddNewTodo", () => {
+  it("renders correctly", () => {
+    const tree = renderer.create(<AddNewTodo createTodo={() => {}} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
   it("when input is populated, the value is reflected ", () => {
     render(<AddNewTodo createTodo={() => {}} />)
 

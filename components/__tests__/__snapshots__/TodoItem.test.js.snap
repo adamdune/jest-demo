@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem <TodoItem /> renders correctly when todo.isDone is false 1`] = `
+<div
+  className="flex items-center cursor-pointer"
+  data-testid="TodoItem"
+>
+  <input
+    checked={false}
+    className="cursor-pointer"
+    id="checkbox/0"
+    onChange={[Function]}
+    role="checkbox"
+    type="checkbox"
+  />
+  <div
+    className="w-2"
+  />
+  <label
+    className=" cursor-pointer"
+    htmlFor="checkbox/0"
+  >
+    Hello World
+  </label>
+</div>
+`;
+
+exports[`TodoItem <TodoItem /> renders correctly when todo.isDone is true 1`] = `
+<div
+  className="flex items-center cursor-pointer"
+  data-testid="TodoItem"
+>
+  <input
+    checked={true}
+    className="cursor-pointer"
+    id="checkbox/0"
+    onChange={[Function]}
+    role="checkbox"
+    type="checkbox"
+  />
+  <div
+    className="w-2"
+  />
+  <label
+    className="line-through cursor-pointer"
+    htmlFor="checkbox/0"
+  >
+    Lorem Ipsum
+  </label>
+</div>
+`;

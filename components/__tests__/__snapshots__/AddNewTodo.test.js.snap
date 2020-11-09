@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNewTodo renders correctly 1`] = `
+<div
+  className="flex flex-col items-center"
+>
+  <input
+    className="bg-gray-800 p-2 outline-none w-64"
+    onChange={[Function]}
+    placeholder="Enter your todo"
+    type="text"
+    value=""
+  />
+  <div
+    className="h-2"
+  />
+  <button
+    className="bg-blue-700 px-2 py-1"
+    onClick={[Function]}
+  >
+    Add New Todo
+  </button>
+</div>
+`;
