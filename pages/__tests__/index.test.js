@@ -11,11 +11,17 @@ describe("Index Page", () => {
     const initialTodoItems = screen.queryAllByTestId("TodoItem")
     expect(initialTodoItems).toHaveLength(0)
 
-    fireEvent.change(addNewTodoInput, { target: { value: "This is a todo 1" } })
+    fireEvent.change(addNewTodoInput, {
+      target: { value: "This is a todo 1" },
+    })
     fireEvent.click(addNewTodoButton)
-    fireEvent.change(addNewTodoInput, { target: { value: "This is a todo 2" } })
+    fireEvent.change(addNewTodoInput, {
+      target: { value: "This is a todo 2" },
+    })
     fireEvent.click(addNewTodoButton)
-    fireEvent.change(addNewTodoInput, { target: { value: "This is a todo 3" } })
+    fireEvent.change(addNewTodoInput, {
+      target: { value: "This is a todo 3" },
+    })
     fireEvent.click(addNewTodoButton)
 
     const todoItems = screen.queryAllByTestId("TodoItem")
@@ -36,7 +42,9 @@ describe("Index Page", () => {
     const addNewTodoInput = screen.getByPlaceholderText("Enter your todo")
     const addNewTodoButton = screen.getByText("Add New Todo")
 
-    fireEvent.change(addNewTodoInput, { target: { value: "This is a todo 1" } })
+    fireEvent.change(addNewTodoInput, {
+      target: { value: "This is a todo 1" },
+    })
     fireEvent.click(addNewTodoButton)
 
     const todoItemLabel = screen.getByText("This is a todo 1")
@@ -51,4 +59,33 @@ describe("Index Page", () => {
 
     expect(todoItemLabel).not.toHaveClass("line-through")
   })
+
+  // it("when todo is clicked on a different todo, line-through on the original TodoItem is not toggled", () => {
+  //   render(<Index />)
+
+  //   const addNewTodoInput = screen.getByPlaceholderText("Enter your todo")
+  //   const addNewTodoButton = screen.getByText("Add New Todo")
+
+  //   fireEvent.change(addNewTodoInput, {
+  //     target: { value: "This is a todo 1" },
+  //   })
+  //   fireEvent.click(addNewTodoButton)
+  //   fireEvent.change(addNewTodoInput, {
+  //     target: { value: "This is a todo 2" },
+  //   })
+  //   fireEvent.click(addNewTodoButton)
+
+  //   const todoItemLabel1 = screen.getByText("This is a todo 1")
+  //   const todoItemLabel2 = screen.getByText("This is a todo 2")
+
+  //   expect(todoItemLabel2).not.toHaveClass("line-through")
+
+  //   fireEvent.click(todoItemLabel1)
+
+  //   expect(todoItemLabel2).not.toHaveClass("line-through")
+
+  //   fireEvent.click(todoItemLabel1)
+
+  //   expect(todoItemLabel1).not.toHaveClass("line-through")
+  // })
 })
