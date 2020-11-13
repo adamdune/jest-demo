@@ -7,6 +7,10 @@ export default function Home() {
   const [todos, setTodos] = useState([])
 
   const onChangeCheckbox = (isDone, i) => {
+    // const nextTodos = [...todos]
+    // nextTodos[i] = { ...nextTodos[i], isDone: !isDone }
+    // setTodos(nextTodos)
+
     setTodos(
       todos.map((todo, j) => {
         if (i === j) {
